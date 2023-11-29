@@ -6,7 +6,7 @@
 /*   By: hemottu <hemottu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 19:28:39 by hemottu           #+#    #+#             */
-/*   Updated: 2023/11/28 18:41:23 by hemottu          ###   ########.fr       */
+/*   Updated: 2023/11/29 12:04:37 by hemottu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,5 @@ int main ()
 	david.beRepaired(3);
 	print_state(david, goliath);
 	david.attack("Goliath");
-
 	print_state(david, goliath);
-
 }

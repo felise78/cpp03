@@ -6,7 +6,7 @@
 /*   By: hemottu <hemottu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 19:28:29 by hemottu           #+#    #+#             */
-/*   Updated: 2023/11/28 18:19:12 by hemottu          ###   ########.fr       */
+/*   Updated: 2023/11/29 11:45:43 by hemottu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 // #       FORME CANONIQUE       #
 // ###############################
 
-ClapTrap::ClapTrap() : m_hitPts(10), m_energyPts(10), m_attackDmg(0)
+ClapTrap::ClapTrap() : m_name("default"), m_hitPts(10), m_energyPts(10), m_attackDmg(0)
 {
-	
+	std::cout << m_name << " has been created." << std::endl;
 }
 
 ClapTrap::ClapTrap( const ClapTrap& copy )
@@ -95,7 +95,7 @@ void	ClapTrap::attack(const std::string& target)
 		return ;
 	}
 	std::cout << "ClapTrap " << getName() << " attacks " << target;
-	std::cout << " causing " << m_attackDmg << " points of damage!" << std::endl;
+	std::cout << " causing " << this->m_attackDmg << " points of damage!" << std::endl;
 	this->m_energyPts--;
 	if (this->m_energyPts < 0)
 		this->m_energyPts = 0;
