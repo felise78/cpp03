@@ -50,8 +50,7 @@ ClapTrap::~ClapTrap()
 
 ClapTrap::ClapTrap( std::string name ) : m_name(name), m_hitPts(10), m_energyPts(10), m_attackDmg(0)
 {
-	std::cout << BLUE << "ClapTrap " << m_name << " has been created with ";
-	std::cout << this->m_energyPts << " energy points." << RESET << std::endl;
+	std::cout << BLUE << "ClapTrap " << m_name << " has been created.";
 }
 
 

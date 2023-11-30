@@ -27,7 +27,9 @@ FragTrap::FragTrap() : ClapTrap()
 	this->m_attackDmg = 30;
 	std::cout << "\033[38;2;" << r << ";" << g << ";" << b << "m";
 	std::cout << "FragTrap " << this->m_name << " has been created." << RESET << std::endl;
+// changer le message
 }
+
 
 FragTrap::FragTrap( const FragTrap& copy ) : ClapTrap(copy)
 {
@@ -35,14 +37,17 @@ FragTrap::FragTrap( const FragTrap& copy ) : ClapTrap(copy)
     int g = 200;
     int b = 250;
 
+	*this = copy;
 	std::cout << "\033[38;2;" << r << ";" << g << ";" << b << "m";
 	std::cout << this->m_name << " : FragTrap copy has been created." << RESET << std::endl;
 }
 
 FragTrap&	FragTrap::operator=( const FragTrap& src )
 {
-	// to do
-	(void) src;
+	this->m_name = src.m_name;
+	this->m_hitPts = src.m_hitPts;
+	this->m_energyPts = src.m_energyPts;
+	this->m_attackDmg = src.m_attackDmg;
 	return *this;
 }
 
@@ -54,6 +59,7 @@ FragTrap::~FragTrap()
 
 	std::cout << "\033[38;2;" << r << ";" << g << ";" << b << "m";
 	std::cout << "FragTrap " << m_name << " has left this world" << RESET << std::endl;
+// changer le message ?
 }
 
 
