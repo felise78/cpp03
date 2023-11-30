@@ -13,51 +13,133 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
-#define RED     "\033[31m"
-#define ITALIC	"\033[3m"
+#include "FragTrap.hpp"
 
-void	print_state(ScavTrap& perso)
+void	print_state_scv(ScavTrap& perso)
 {
-	std::cout << ITALIC;
+	// codes couleurs pour gris clair
+	int r = 150;
+    int g = 150;
+    int b = 150;
+
+	std::cout << "\033[38;2;" << r << ";" << g << ";" << b << "m";
 	std::cout << perso.getName() << " : " << perso.getHitPts() << " hits Points | ";
 	std::cout << perso.getNrjPts() << " energy Points | " << perso.getAttackDmg();
-	std::cout << " attack damage" << RESET << std::endl << std::endl;
+	std::cout << " attack damage" << RESET << std::endl;
+}
+
+void	print_state_clp(ClapTrap& perso)
+{
+	// codes couleurs pour gris clair
+	int r = 150;
+    int g = 150;
+    int b = 150;
+
+	std::cout << "\033[38;2;" << r << ";" << g << ";" << b << "m";
+	std::cout << perso.getName() << " : " << perso.getHitPts() << " hits Points | ";
+	std::cout << perso.getNrjPts() << " energy Points | " << perso.getAttackDmg();
+	std::cout << " attack damage" << RESET << std::endl;
+}
+
+void	print_state_frg(ClapTrap& perso)
+{
+	// codes couleurs pour gris clair
+	int r = 150;
+    int g = 150;
+    int b = 150;
+
+	std::cout << "\033[38;2;" << r << ";" << g << ";" << b << "m";
+	std::cout << perso.getName() << " : " << perso.getHitPts() << " hits Points | ";
+	std::cout << perso.getNrjPts() << " energy Points | " << perso.getAttackDmg();
+	std::cout << " attack damage" << RESET << std::endl;
 }
 
 int main ()
 {
-	std::cout << RED << "# Constructeurs : " << RESET << std::endl;
+	// codes couleurs pour gris clair
+	int r = 150;
+    int g = 150;
+    int b = 150;
+
+	std::cout << std::endl;
+    std::cout << "  -----------------------  " << std::endl;
+    std::cout << " |     Constructeurs     | " << std::endl;
+    std::cout << "  -----------------------  " << std::endl;
+	std::cout << std::endl;
 	
 	ClapTrap riri("Riri");
 	ClapTrap fifi("Fifi");
 	ScavTrap loulou("Loulou");
-	
+	FragTrap picsou("Picsou");
+
 	std::cout << std::endl;
-	std::cout << RED << "# Tests fonctions : " << RESET << std::endl;
-	print_state(loulou);
-	loulou.attack("Riri");
-	fifi.attack("Loulou");
-	loulou.takeDamage(20);
-	print_state(loulou);
+    std::cout << "  -----------------------  " << std::endl;
+    std::cout << " |    Tests Fonctions    | " << std::endl;
+    std::cout << "  -----------------------  " << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "\033[38;2;" << r << ";" << g << ";" << b << "m";
+	std::cout << "-------------------[ Initialisation ]----------------------";
+	std::cout << RESET << std::endl << std::endl;
+	print_state_clp(riri);
+	print_state_clp(fifi);
+	print_state_scv(loulou);
+	print_state_frg(picsou);
+	std::cout << std::endl << std::endl;
+
+	std::cout << BLUE;
+	std::cout << "------------------[ fonctions ClapTrap ]-------------------";
+	std::cout << RESET << std::endl << std::endl;
 	riri.attack("Loulou");
-	std::cout << "Riri has : " << riri.getNrjPts() << " energy Pts." << std::endl;
+	print_state_clp(riri);
+	std::cout << std::endl;
 	riri.beRepaired(0);
-	std::cout << "Riri has : " << riri.getNrjPts() << " energy Pts." << std::endl;
+	print_state_clp(riri);
+	std::cout << std::endl;
 	loulou.beRepaired(10);
-	print_state(loulou);
-	
-	
+	print_state_scv(loulou);
+	std::cout << std::endl;
+	loulou.takeDamage(20);
+	print_state_scv(loulou);
+	std::cout << std::endl << std::endl;
+
+	std::cout << GREEN;
+	std::cout << "------------------[ fonctions ScavTrap ]-------------------";
+	std::cout << RESET << std::endl << std::endl;
+	loulou.attack("Riri");
+	print_state_scv(loulou);
+	std::cout << std::endl;
 	loulou.guardGate();
 	//david.guardGate();
+	std::cout << std::endl;
+
+	r = 150;
+    g = 200;
+    b = 250;
+
+	std::cout << "\033[38;2;" << r << ";" << g << ";" << b << "m";
+	std::cout << "------------------[ fonctions FragTrap ]-------------------";
+	std::cout << RESET << std::endl << std::endl;
+	picsou.attack("FiFi");
+	print_state_frg(picsou);
+	std::cout << std::endl;
+	picsou.highFivesGuys();
+	//loulou.highFivesGuys();
+	//picsou.guardGate();
+	std::cout << std::endl;
 
 	std::cout << std::endl;
-	std::cout << RED << "# Test copie : " << RESET << std::endl;
-	ScavTrap copy(loulou);
-	print_state(copy);
+    std::cout << "  -----------------------  " << std::endl;
+    std::cout << " |       Test Copie      | " << std::endl;
+    std::cout << "  -----------------------  " << std::endl;
+	std::cout << std::endl;
+
+	FragTrap copy(picsou);
+	print_state_frg(copy);
 	
 	std::cout << std::endl;
-	std::cout << RED << "# Deconstructeurs : " << RESET << std::endl;
+    std::cout << "  -----------------------  " << std::endl;
+    std::cout << " |    Deconstructeurs    | " << std::endl;
+    std::cout << "  -----------------------  " << std::endl;
+	std::cout << std::endl;
 }
-
-// pointeur class Parent puis creer un new de la classe 
-// enfant dedans et voir ce qui se passe

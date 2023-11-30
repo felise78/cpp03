@@ -14,13 +14,10 @@
 # define FRAGTRAP_HPP
 
 	#include <string>
-	#define YELLOW  "\033[33m"
-	#define RESET   "\033[0m"
 	#include "ClapTrap.hpp"
 	#include <iostream>
 	
-	class FragTrap : public ClapTrap
-	{
+	class FragTrap : public ClapTrap {
 		public:
 		FragTrap();
 		FragTrap( std::string name );
@@ -29,6 +26,6 @@
 		~FragTrap();
 
 		void	highFivesGuys( void );
-	}
+	};
 
 #endif

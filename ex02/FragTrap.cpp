@@ -18,15 +18,25 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
+	int r = 150;
+    int g = 200;
+    int b = 250;
+	
 	this->m_hitPts = 100;
 	this->m_energyPts = 100;
 	this->m_attackDmg = 30;
-	std::cout << YELLOW << "FragTrap " << this->m_name << " has been created." << RESET << std::endl;
+	std::cout << "\033[38;2;" << r << ";" << g << ";" << b << "m";
+	std::cout << "FragTrap " << this->m_name << " has been created." << RESET << std::endl;
 }
 
 FragTrap::FragTrap( const FragTrap& copy ) : ClapTrap(copy)
 {
-	std::cout << YELLOW << this->m_name << " : FragTrap copy has been created." << RESET << std::endl;
+	int r = 150;
+    int g = 200;
+    int b = 250;
+
+	std::cout << "\033[38;2;" << r << ";" << g << ";" << b << "m";
+	std::cout << this->m_name << " : FragTrap copy has been created." << RESET << std::endl;
 }
 
 FragTrap&	FragTrap::operator=( const FragTrap& src )
@@ -38,7 +48,12 @@ FragTrap&	FragTrap::operator=( const FragTrap& src )
 
 FragTrap::~FragTrap()
 {
-	std::cout << YELLOW << "FragTrap " << m_name << " has left this world" << RESET << std::endl;
+	int r = 150;
+    int g = 200;
+    int b = 250;
+
+	std::cout << "\033[38;2;" << r << ";" << g << ";" << b << "m";
+	std::cout << "FragTrap " << m_name << " has left this world" << RESET << std::endl;
 }
 
 
@@ -48,10 +63,15 @@ FragTrap::~FragTrap()
 
 FragTrap::FragTrap( std::string name ) : ClapTrap(name)
 {
+	int r = 150;
+    int g = 200;
+    int b = 250;
+
 	this->m_hitPts = 100;
 	this->m_energyPts = 100;
 	this->m_attackDmg = 30;
-	std::cout << YELLOW << "FragTrap " << this->m_name << " has been created." << RESET << std::endl;
+	std::cout << "\033[38;2;" << r << ";" << g << ";" << b << "m";
+	std::cout << "FragTrap " << this->m_name << " has been created." << RESET << std::endl;
 }
 
 

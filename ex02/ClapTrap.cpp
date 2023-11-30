@@ -93,7 +93,7 @@ void	ClapTrap::attack(const std::string& target)
 		std::cout << this->m_name << " is too weak and can't do anything." << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << getName() << " attacks " << target;
+	std::cout << getName() << " attacks " << target;
 	std::cout << " causing " << m_attackDmg << " points of damage!" << std::endl;
 	this->m_energyPts--;
 	if (this->m_energyPts < 0)
@@ -102,7 +102,7 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "ClapTrap " << getName() << " takes " << amount;
+	std::cout << getName() << " takes " << amount;
 	std::cout << " damages " << std::endl;
 	this->m_hitPts -= amount;
 	if (this->m_hitPts < 0)
@@ -111,7 +111,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	std::cout << "ClapTrap " << getName() << " repairs itself and gets " << amount;
+	std::cout << getName() << " repairs itself and gets " << amount;
 	std::cout << " hit points back." << std::endl;
 	
 	this->m_energyPts--;
